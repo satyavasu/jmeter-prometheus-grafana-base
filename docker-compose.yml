@@ -38,11 +38,12 @@ services:
     volumes:
       - grafana-volume:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
+    labels:
+      org.label-schema.group: "monitoring"
 
 networks:
   monitoring:
 
 volumes:
-  grafana-volume:
-    external: true
+  grafana-volume: {}
   prometheus_data: {}

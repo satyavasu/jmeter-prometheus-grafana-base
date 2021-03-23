@@ -18,6 +18,12 @@ Access Grafana from browser
 
 http://localhost:3000/
 
+Check Prometheus
+
+http://localhost:9090/graph
+
+http://localhost:9270/metrics
+
 ## :postbox: Contacts
 
 Owner: [beemi.raja@gmail.com](beemi.raja@gmail.com)
