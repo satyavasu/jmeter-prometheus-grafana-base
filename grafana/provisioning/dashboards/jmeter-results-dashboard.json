@@ -16,11 +16,8 @@
   "editable": true,
   "gnetId": 2492,
   "graphTooltip": 1,
-  "id": 2,
-  "iteration": 1582126578426,
-  "links": [
-
-  ],
+  "iteration": 1616537304603,
+  "links": [],
   "panels": [
     {
       "cacheTimeout": null,
@@ -32,6 +29,12 @@
         "#3274D9"
       ],
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -48,9 +51,7 @@
       },
       "id": 12,
       "interval": null,
-      "links": [
-
-      ],
+      "links": [],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -65,9 +66,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {
-
-      },
       "postfix": " vus",
       "postfixFontSize": "100%",
       "prefix": "",
@@ -123,6 +121,12 @@
       ],
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "ops",
       "gauge": {
         "maxValue": 100,
@@ -139,9 +143,7 @@
       },
       "id": 7,
       "interval": null,
-      "links": [
-
-      ],
+      "links": [],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -156,9 +158,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {
-
-      },
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -179,9 +178,10 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(irate(Ratio_success[$interval]))",
+          "expr": "sum(irate(jmeter_success_total[$interval]))",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "E"
@@ -211,6 +211,12 @@
       ],
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "ms",
       "gauge": {
         "maxValue": 100,
@@ -227,9 +233,7 @@
       },
       "id": 14,
       "interval": null,
-      "links": [
-
-      ],
+      "links": [],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -244,9 +248,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {
-
-      },
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "Avg. ",
@@ -267,7 +268,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "avg((rate(ResponseTime_sum{code=\"200\"}[$interval])/(rate(ResponseTime_count{code=\"200\"}[$interval])>0)))",
+          "expr": "avg((rate(jmeter_rt_as_summary_sum{code=\"200\"}[$interval])/(rate(jmeter_rt_as_summary_count{code=\"200\"}[$interval])>0)))",
           "format": "time_series",
           "hide": false,
           "instant": true,
@@ -303,6 +304,12 @@
       ],
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percentunit",
       "gauge": {
         "maxValue": 100,
@@ -319,9 +326,7 @@
       },
       "id": 8,
       "interval": null,
-      "links": [
-
-      ],
+      "links": [],
       "mappingType": 1,
       "mappingTypes": [
         {
@@ -336,9 +341,6 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
-      "options": {
-
-      },
       "postfix": " error rate",
       "postfixFontSize": "100%",
       "prefix": "",
@@ -359,9 +361,10 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(avg(rate(Ratio_failure[$interval]))/avg(rate(Ratio_total[$interval])))",
+          "expr": "(avg(rate(jmeter_fail_total[$interval]))/avg(rate(jmeter_count_total[$interval])))",
           "format": "time_series",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A",
@@ -391,9 +394,7 @@
         "y": 2
       },
       "id": 17,
-      "panels": [
-
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Summary",
       "type": "row"
@@ -408,6 +409,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -435,16 +443,13 @@
       },
       "lines": true,
       "linewidth": 3,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -494,13 +499,9 @@
           "refId": "C"
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "Virtual Users vs OK/KO",
       "tooltip": {
@@ -514,9 +515,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -555,6 +554,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 10,
       "fillGradient": 0,
       "gridPos": {
@@ -579,16 +585,13 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -614,7 +617,7 @@
       "steppedLine": true,
       "targets": [
         {
-          "expr": "(sum(rate(Ratio_success[$interval]))/sum(rate(Ratio_total[$interval])))",
+          "expr": "(sum(rate(jmeter_success_total[$interval]))/sum(rate(jmeter_count_total[$interval])))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -623,27 +626,26 @@
           "step": 2
         },
         {
-          "expr": "(sum(rate(Ratio_failure[$interval]))/sum(rate(Ratio_total[$interval])))",
+          "expr": "(sum(rate(jmeter_fail_total[$interval]))/sum(rate(jmeter_count_total[$interval])))",
           "format": "time_series",
+          "hide": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "KO",
           "refId": "B"
         },
         {
-          "expr": "sum(rate(Ratio_total[$interval]))",
+          "expr": "sum(rate(jmeter_count_total[$interval]))",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "Total Requests per second",
           "refId": "C"
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "Total Requests vs OK/KO",
       "tooltip": {
@@ -657,9 +659,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -695,6 +695,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -722,16 +729,13 @@
       },
       "lines": true,
       "linewidth": 3,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -752,7 +756,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg((rate(ResponseTime_sum{code=\"200\"}[$interval])/(rate(ResponseTime_count{code=\"200\"}[$interval])>0)))",
+          "expr": "avg((rate(jmeter_rt_as_hist_sum{code=\"200\"}[$interval])/(rate(jmeter_rt_as_hist_count{code=\"200\"}[$interval])>0)))",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -770,13 +774,9 @@
           "refId": "A"
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "Avg. Response Time vs Virtual Users",
       "tooltip": {
@@ -790,9 +790,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -827,6 +825,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -854,16 +859,13 @@
       },
       "lines": true,
       "linewidth": 3,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -888,7 +890,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg((rate(ResponseTime_sum{code=\"200\"}[$interval])/(rate(ResponseTime_count{code=\"200\"}[$interval])>0)))",
+          "expr": "avg((rate(jmeter_rt_as_summary_sum{code=\"200\"}[$interval])/(rate(jmeter_rt_as_summary_count{code=\"200\"}[$interval])>0)))",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -899,30 +901,27 @@
           "step": 1
         },
         {
-          "expr": "sum(rate(Ratio_success[$interval]))",
+          "expr": "sum(rate(jmeter_success_total[$interval]))",
           "format": "time_series",
-          "hide": true,
+          "hide": false,
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "OK",
           "refId": "A"
         },
         {
-          "expr": "sum(rate(Ratio_failure[$interval]))   ",
+          "expr": "sum(rate(jmeter_fail_total[$interval]))   ",
           "format": "time_series",
-          "hide": true,
+          "hide": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "KO",
           "refId": "C"
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "Avg. Response Time vs OK/KO",
       "tooltip": {
@@ -936,9 +935,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -965,10 +962,14 @@
       }
     },
     {
-      "columns": [
-
-      ],
+      "columns": [],
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 8,
@@ -977,12 +978,7 @@
         "y": 23
       },
       "id": 33,
-      "links": [
-
-      ],
-      "options": {
-
-      },
+      "links": [],
       "pageSize": 20,
       "scroll": true,
       "showHeader": true,
@@ -1012,9 +1008,7 @@
           "decimals": 2,
           "mappingType": 1,
           "pattern": "label",
-          "thresholds": [
-
-          ],
+          "thresholds": [],
           "type": "number",
           "unit": "short"
         },
@@ -1031,9 +1025,7 @@
           "decimals": 0,
           "mappingType": 1,
           "pattern": "Value",
-          "thresholds": [
-
-          ],
+          "thresholds": [],
           "type": "number",
           "unit": "locale"
         },
@@ -1048,18 +1040,17 @@
           ],
           "decimals": 2,
           "pattern": "/.*/",
-          "thresholds": [
-
-          ],
+          "thresholds": [],
           "type": "number",
           "unit": "short"
         }
       ],
       "targets": [
         {
-          "expr": "sum(Ratio_success) by (label) ",
+          "expr": "sum(jmeter_success_total) by (label) ",
           "format": "table",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
@@ -1067,13 +1058,17 @@
       ],
       "title": "OK",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     },
     {
-      "columns": [
-
-      ],
+      "columns": [],
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 8,
@@ -1082,12 +1077,7 @@
         "y": 23
       },
       "id": 34,
-      "links": [
-
-      ],
-      "options": {
-
-      },
+      "links": [],
       "pageSize": 25,
       "scroll": true,
       "showHeader": true,
@@ -1117,9 +1107,7 @@
           "decimals": 2,
           "mappingType": 1,
           "pattern": "label",
-          "thresholds": [
-
-          ],
+          "thresholds": [],
           "type": "number",
           "unit": "short"
         },
@@ -1153,18 +1141,17 @@
           ],
           "decimals": 2,
           "pattern": "/.*/",
-          "thresholds": [
-
-          ],
+          "thresholds": [],
           "type": "number",
           "unit": "short"
         }
       ],
       "targets": [
         {
-          "expr": "sum(Ratio_failure) by (label) ",
+          "expr": "sum(jmeter_fail_total) by (label) ",
           "format": "table",
           "instant": true,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
@@ -1172,7 +1159,7 @@
       ],
       "title": "KO",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     },
     {
       "collapsed": false,
@@ -1184,9 +1171,7 @@
         "y": 31
       },
       "id": 18,
-      "panels": [
-
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Response times",
       "type": "row"
@@ -1200,6 +1185,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -1228,28 +1220,23 @@
       },
       "lines": true,
       "linewidth": 3,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": " avg (rate(ResponseTime_sum{code=~\"1.*|2.*|3.*|4.*|5.*\"}[$interval]) / (rate(ResponseTime_count{code=~\"1.*|2.*|3.*|4.*|5.*\"}[$interval])>0)) by (label)",
+          "expr": " avg (rate(jmeter_rt_as_summary_sum{code=~\"1.*|2.*|3.*|4.*|5.*\"}[$interval]) / (rate(jmeter_rt_as_summary_count{code=~\"1.*|2.*|3.*|4.*|5.*\"}[$interval])>0)) by (label)",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -1260,13 +1247,9 @@
           "step": 1
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "Avg. response time",
       "tooltip": {
@@ -1280,9 +1263,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -1309,20 +1290,139 @@
     },
     {
       "aliasColors": {
-
+        "avg jmeter": "light-green"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 0,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 43
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 37,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "sort": "avg",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 3,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": " avg (rate(jmeter_rsize_as_hist_sum[$interval]) / (rate(jmeter_rsize_as_hist_count[$interval])>0)) by (label)",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{label}} ",
+          "refId": "A",
+          "step": 1
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Avg. response size",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:267",
+          "format": "deckbytes",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:268",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 43
+        "y": 54
       },
       "height": "400",
       "hiddenSeries": false,
@@ -1344,28 +1444,23 @@
       },
       "lines": true,
       "linewidth": 3,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg(ResponseTime{code=\"200\"}) by (quantile)",
+          "expr": "avg(jmeter_rt_as_summary{code=\"200\"}) by (quantile)",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1375,13 +1470,9 @@
           "step": 1
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "Pct response times",
       "tooltip": {
@@ -1395,9 +1486,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -1430,12 +1519,10 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 53
+        "y": 64
       },
       "id": 19,
-      "panels": [
-
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Requests per second",
       "type": "row"
@@ -1450,13 +1537,20 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 54
+        "y": 65
       },
       "height": "400",
       "hiddenSeries": false,
@@ -1475,16 +1569,13 @@
       },
       "lines": false,
       "linewidth": 3,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1505,7 +1596,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(Ratio_success[$interval]))",
+          "expr": "sum(rate(jmeter_success_total[$interval]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1515,23 +1606,20 @@
           "step": 2
         },
         {
-          "expr": "sum(rate(Ratio_failure[$interval]))",
+          "expr": "sum(rate(jmeter_fail_total[$interval]))",
           "format": "time_series",
           "hide": false,
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "KO",
           "refId": "B",
           "step": 2
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "Total",
       "tooltip": {
@@ -1545,9 +1633,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -1580,13 +1666,20 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 64
+        "y": 75
       },
       "height": "400",
       "hiddenSeries": false,
@@ -1606,28 +1699,23 @@
       },
       "lines": false,
       "linewidth": 1,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": true,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(Ratio_total[$interval])) by (label)",
+          "expr": "sum(rate(jmeter_count_total[$interval])) by (label)",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1636,13 +1724,9 @@
           "step": 2
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "by label",
       "tooltip": {
@@ -1656,9 +1740,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -1691,13 +1773,20 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 5,
       "fillGradient": 0,
       "gridPos": {
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 74
+        "y": 85
       },
       "height": "400",
       "hiddenSeries": false,
@@ -1715,28 +1804,23 @@
       },
       "lines": false,
       "linewidth": 1,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": true,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (code) (rate(Ratio_total[$interval]))",
+          "expr": "sum by (code) (rate(jmeter_rt_as_summary_count[$interval]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1745,13 +1829,9 @@
           "step": 2
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "by HTTP code",
       "tooltip": {
@@ -1765,9 +1845,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -1793,239 +1871,230 @@
       }
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 84
+        "y": 95
       },
       "id": 20,
-      "panels": [
-        {
-          "aliasColors": {
-            "moviri.com/404 - HTTP 404": "#58140C"
-          },
-          "bars": true,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "Prometheus",
-          "fill": 5,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 10,
-            "w": 24,
-            "x": 0,
-            "y": 86
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 15,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": false,
-            "max": true,
-            "min": true,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": false,
-          "linewidth": 1,
-          "links": [
-
-          ],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": [
-
-            ]
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-
-          ],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum by(code) (rate(Ratio_failure[$interval]))",
-              "format": "time_series",
-              "hide": false,
-              "interval": "",
-              "intervalFactor": 1,
-              "legendFormat": "HTTP {{code}}",
-              "refId": "A",
-              "step": 2
-            }
-          ],
-          "thresholds": [
-
-          ],
-          "timeFrom": null,
-          "timeRegions": [
-
-          ],
-          "timeShift": null,
-          "title": "by HTTP code",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": [
-
-            ]
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {
-            "moviri.com/servicesKO - servicesKO": "#58140C"
-          },
-          "bars": true,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "Prometheus",
-          "fill": 5,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 10,
-            "w": 24,
-            "x": 0,
-            "y": 96
-          },
-          "height": "400",
-          "hiddenSeries": false,
-          "id": 16,
-          "legend": {
-            "alignAsTable": true,
-            "avg": true,
-            "current": false,
-            "max": true,
-            "min": true,
-            "show": true,
-            "sort": "max",
-            "sortDesc": true,
-            "total": false,
-            "values": true
-          },
-          "lines": false,
-          "linewidth": 1,
-          "links": [
-
-          ],
-          "nullPointMode": "null",
-          "options": {
-            "dataLinks": [
-
-            ]
-          },
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [
-
-          ],
-          "spaceLength": 10,
-          "stack": true,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum by (label) (rate(Ratio_failure[$interval]))",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 1,
-              "legendFormat": "{{label}}",
-              "refId": "B",
-              "step": 2
-            }
-          ],
-          "thresholds": [
-
-          ],
-          "timeFrom": null,
-          "timeRegions": [
-
-          ],
-          "timeShift": null,
-          "title": "by label",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": [
-
-            ]
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        }
-      ],
+      "panels": [],
       "repeat": null,
       "title": "Errors",
       "type": "row"
+    },
+    {
+      "aliasColors": {
+        "moviri.com/404 - HTTP 404": "#58140C"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 5,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 96
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 15,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by(code) (rate(jmeter_fail_total[$interval]))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "HTTP {{code}}",
+          "refId": "A",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "by HTTP code",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {
+        "moviri.com/servicesKO - servicesKO": "#58140C"
+      },
+      "bars": true,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 5,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 106
+      },
+      "height": "400",
+      "hiddenSeries": false,
+      "id": 16,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": false,
+        "max": true,
+        "min": true,
+        "show": true,
+        "sort": "max",
+        "sortDesc": true,
+        "total": false,
+        "values": true
+      },
+      "lines": false,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.4.5",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum by (label) (rate(jmeter_fail_total[$interval]))",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "{{label}}",
+          "refId": "B",
+          "step": 2
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "by label",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "collapsed": false,
@@ -2034,30 +2103,33 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 85
+        "y": 116
       },
       "id": 22,
-      "panels": [
-
-      ],
+      "panels": [],
       "title": "Test farm",
       "type": "row"
     },
     {
-      "aliasColors": {
-
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 86
+        "y": 117
       },
       "hiddenSeries": false,
       "id": 24,
@@ -2072,16 +2144,13 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2118,13 +2187,9 @@
           "refId": "C"
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "GC % time",
       "tooltip": {
@@ -2138,9 +2203,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -2167,20 +2230,25 @@
       }
     },
     {
-      "aliasColors": {
-
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 94
+        "y": 125
       },
       "hiddenSeries": false,
       "id": 27,
@@ -2199,22 +2267,17 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": true,
       "steppedLine": false,
@@ -2228,13 +2291,9 @@
           "refId": "A"
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "JVM heap  - free memory by pool",
       "tooltip": {
@@ -2248,9 +2307,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -2276,20 +2333,25 @@
       }
     },
     {
-      "aliasColors": {
-
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 102
+        "y": 133
       },
       "hiddenSeries": false,
       "id": 26,
@@ -2308,22 +2370,17 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": true,
       "steppedLine": false,
@@ -2337,13 +2394,9 @@
           "refId": "A"
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "JVM heap -  used memory by pool",
       "tooltip": {
@@ -2357,9 +2410,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -2385,20 +2436,25 @@
       }
     },
     {
-      "aliasColors": {
-
-      },
+      "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 110
+        "y": 141
       },
       "hiddenSeries": false,
       "id": 25,
@@ -2415,22 +2471,17 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [
-
-      ],
+      "links": [],
       "nullPointMode": "null",
       "options": {
-        "dataLinks": [
-
-        ]
+        "alertThreshold": true
       },
       "percentage": false,
+      "pluginVersion": "7.4.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "seriesOverrides": [
-
-      ],
+      "seriesOverrides": [],
       "spaceLength": 10,
       "stack": true,
       "steppedLine": false,
@@ -2444,13 +2495,9 @@
           "refId": "A"
         }
       ],
-      "thresholds": [
-
-      ],
+      "thresholds": [],
       "timeFrom": null,
-      "timeRegions": [
-
-      ],
+      "timeRegions": [],
       "timeShift": null,
       "title": "JVM free memory",
       "tooltip": {
@@ -2464,9 +2511,7 @@
         "mode": "time",
         "name": null,
         "show": true,
-        "values": [
-
-        ]
+        "values": []
       },
       "yaxes": [
         {
@@ -2493,7 +2538,7 @@
     }
   ],
   "refresh": "30s",
-  "schemaVersion": 22,
+  "schemaVersion": 27,
   "style": "dark",
   "tags": [
     "jmeter"
@@ -2503,10 +2548,12 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "30s",
-          "value": "30s"
+          "selected": true,
+          "text": "1m",
+          "value": "1m"
         },
+        "description": null,
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "interval",
@@ -2514,12 +2561,12 @@
         "name": "interval",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "30s",
             "value": "30s"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "1m",
             "value": "1m"
           },
@@ -2535,13 +2582,14 @@
           }
         ],
         "query": "30s,1m,5m,10m",
+        "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
       }
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "2021-03-23T22:08:26.000Z",
     "to": "now"
   },
   "timepicker": {
@@ -2572,5 +2620,5 @@
   "timezone": "browser",
   "title": "jmeter-prometheus-dashboard",
   "uid": "jbtLA0-Wk5",
-  "version": 2
+  "version": 6
 }

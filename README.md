@@ -24,6 +24,11 @@ http://localhost:9090/graph
 
 http://localhost:9270/metrics
 
+![Alt text](docs/img.png)
+![Alt text](docs/img_1.png)
+![Alt text](docs/img_2.png)
+![Alt text](docs/img_3.png)
+
 ## :postbox: Contacts
 
 Owner: [beemi.raja@gmail.com](beemi.raja@gmail.com)
