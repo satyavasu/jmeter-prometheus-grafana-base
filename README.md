@@ -29,6 +29,10 @@ http://localhost:9270/metrics
 ![Alt text](docs/img_2.png)
 ![Alt text](docs/img_3.png)
 
+## other repo
+
+[jmeter-prometheus-example](https://github.com/beemi/jmeter-prometheus-example)
+
 ## :postbox: Contacts
 
 Owner: [beemi.raja@gmail.com](beemi.raja@gmail.com)
