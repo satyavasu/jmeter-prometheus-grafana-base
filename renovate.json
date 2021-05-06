@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", "group:monorepos"],
+  "extends": ["config:base"],
   "schedule": ["every weekend"],
   "semanticCommits": "auto",
   "rangeStrategy": "bump",
@@ -10,14 +10,6 @@
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
-    },
-    {
-      "depTypeList": ["devDependencies"],
-      "automerge": true
-    },
-    {
-      "packagePatterns": ["eslint"],
-      "groupName": "eslint"
     }
   ]
 }
