@@ -19,7 +19,7 @@ services:
     expose:
       - 9090
     ports:
-      - 9090:9090
+      - "9090:9090"
     networks:
       - monitoring
     labels:
@@ -30,7 +30,7 @@ services:
     container_name: grafana
     restart: always
     ports:
-      - 3000:3000
+      - "3000:3000"
     depends_on:
       - prometheus
     networks:
